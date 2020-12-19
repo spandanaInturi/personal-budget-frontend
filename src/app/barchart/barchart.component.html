@@ -1,0 +1,15 @@
+
+<h2>Bar chart of Expenses</h2>
+<div class = "chart-container" style = "position:relative;height:500vh;width:180vh">
+  <canvas
+      baseChart
+      [chartType]="'bar'"
+      [datasets]="chartData"
+      [labels]="labels"
+      [options]="chartOptions"
+      [legend]="true"
+      [colors]="colors"
+      (chartClick)="onChartClick($event)">
+  </canvas>
+</div>
+
