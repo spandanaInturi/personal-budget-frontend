@@ -13,7 +13,7 @@ export class LineComponent implements OnInit {
 
   public dataSource = {
     datasets: [{
-        label:"Maximum Budget",
+        label:"Expenses",
         data: [],
         backgroundColor : [
         ]
@@ -58,7 +58,8 @@ export class LineComponent implements OnInit {
   .subscribe((res: any) => {
     console.log(res);
     for (let i = 0; i < res.length; i++) {
-     this.dataSource.datasets[0].data[i] = res[i].maxbudget;
+    //  this.dataSource.datasets[0].data[i] = res[i].maxbudget;
+    this.dataSource.datasets[0].data[i] = res[i].budget;
      this.dataSource.labels[i] = res[i].title;
      this.dataSource.datasets[0].backgroundColor[i] = res[i].color;
      this.createChart();

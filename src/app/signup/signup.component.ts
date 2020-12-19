@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
   public registerUser() {
 
     if(this.password!=this.confirm_password){
-      console.log("not valid password")
+      alert("Password Doesn't Match ")
 
     }
     else{
@@ -32,9 +32,16 @@ export class SignupComponent implements OnInit {
       user_obj.password = this.password;
       this.userservice.post_userdetails(user_obj).subscribe( res => {
         localStorage.setItem('token', res.token)
+        // const valid_token = JSON.parse(atob(res.token.toString().split('.')[1]));
+        // setTimeout(function(){
+        //  this.userservice.logout(true)}.bind(this),(valid_token.expiresIn*29*1000));
+        const valid_token = JSON.parse(atob(res.token.toString().split('.')[1]));
+        console.log(valid_token.expiresIn*29*1000)
+        setTimeout(function(){
+         this.userservice.logout(true)}.bind(this),(valid_token.expiresIn*29*1000));
         this._router.navigate(['/dashboard'])
       },
-      err => console.log(err));
+      err => alert("User already exist"));
     }
 
   }
