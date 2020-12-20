@@ -32,6 +32,7 @@ export class SignupComponent implements OnInit {
       user_obj.password = this.password;
       this.userservice.post_userdetails(user_obj).subscribe( res => {
         localStorage.setItem('token', res.token)
+        localStorage.setItem("email",user_obj.email)
         // const valid_token = JSON.parse(atob(res.token.toString().split('.')[1]));
         // setTimeout(function(){
         //  this.userservice.logout(true)}.bind(this),(valid_token.expiresIn*29*1000));

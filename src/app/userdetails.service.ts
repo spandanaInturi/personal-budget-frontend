@@ -24,15 +24,15 @@ export class UserdetailsService {
   constructor(private httpobject:HttpClient,private _router:Router) { }
 
   public get_userdetails(user:any):Observable<any>{
-    //this.login_user = user.email;
+    this.login_user = user.email;
     localStorage.setItem("email",user.email)
     return this.httpobject.post(this.login_url,user)
   }
 
   public post_userdetails(user:any):Observable<any>{
     console.log("entered signmup");
-   // this.login_user = user.email;
-    localStorage.setItem("email",user.email)
+   this.login_user = user.email;
+
     return this.httpobject.post(this.register_url,user)
   }
 

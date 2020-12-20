@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
       console.log(user_obj)
       this.userservice.get_userdetails(user_obj).subscribe((response:any)=>{
         localStorage.setItem('token', response.token)
+        //localStorage.setItem("email",user_obj.email)
+
         const valid_token = JSON.parse(atob(response.token.toString().split('.')[1]));
         console.log(valid_token.expiresIn*29*1000)
         setTimeout(function(){

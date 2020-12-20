@@ -3,18 +3,18 @@
   <div class = "form-group">
 
     <label for = "Email">Email</label>
-    <input required pattern ="[a-z0-9._%+-]+@+[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="email" name = "email" #Email = "ngModel"  id = "Email" type = "text" class = "form-control">
+    <input required pattern ="[a-z0-9._%+-]+@+[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="email" name = "email" #Email = "ngModel"  id = "Email" type = "text" class = "form-control" required>
     <div class = "alert alert-danger" *ngIf = "Email.touched && !Email.valid">
       <div *ngIf= "Email.errors.pattern">Email is not valid</div>
     </div>
   </div>
 
     <label for = "password">Password</label>
-    <input id = "password" type = "password" [(ngModel)]="password" name = "password" class = "form-control">
+    <input id = "password" type = "password" [(ngModel)]="password" name = "password" class = "form-control" required>
 
 
     <label for = "c_password">Confirm Password</label>
-    <input id = "c_password" type = "password" [(ngModel)]="confirm_password" name ="confirm_password" class = "form-control">
+    <input id = "c_password" type = "password" [(ngModel)]="confirm_password" name ="confirm_password" class = "form-control" required>
 
   <button class = "btn btn-primary" type="submit" (click)="registerUser()">Submit</button>
 </div>
